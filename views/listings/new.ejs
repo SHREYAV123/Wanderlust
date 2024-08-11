@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    
+
+    <div class="row ps-5 bg-light bg-opacity">
+        <div class="col-8 offset-2">
+    
+    <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+    <h2 class="pt-5 pb-3 fw-bolder" style="color:#050A30">Create A New Listing</h2>
+    <div class="mb-4 position-relative">
+    <label for="title" class="form-label fs-4 " style="color:#000C66"><b>Title</b></label>
+        <input type="text" placeholder="Add a catchy title" name="listing[title]" class="form-control" required>
+        <div class="valid-tooltip">
+            Title Looks good!
+          </div>
+          <div class="invalid-tooltip">
+           Title should be valid!
+           </div>
+        </div>
+        
+        <div class="mb-4 position-relative">
+        <label for="description" class="form-label fs-4 " style="color:#000C66" ><b>Description</b></label>
+        <input type="text" placeholder="Enter Description" name="listing[description]" class="form-control" required>
+        <div class="invalid-tooltip">
+            Description should be valid!
+          </div>
+          <div class="valid-tooltip">
+            Decsription Looks good!
+          </div>
+    </div >
+        <div class="mb-4 position-relative">
+        <label for="image" class="form-label fs-4 " style="color:#000C66"><b>Upload Image</b></label>
+        <input type="file" name="listing[image][url]" class="form-control" required>
+        <div class="invalid-tooltip">
+            Image should be upload!
+          </div>
+          <div class="valid-tooltip">
+            Looks good!
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+    <div class="mb-4 position-relative ">
+        <label for="price" class="form-label fs-4 " style="color:#000C66"><b>Price</b>
+        </label>
+        <input placeholder="1200" name="listing[price]" class="form-control" required>
+        <div class="invalid-tooltip">
+            Price should be valid!
+          </div>
+          <div class="valid-tooltip">
+        Price  Looks good!
+          </div>
+    </div>
+</div>
+       
+<div class="col-md-8">
+        <div class="mb-4 position-relative ">
+        <label for="country" class="form-label fs-4 " style="color:#000C66"><b>Country</b></label>
+        <input type="text" placeholder="India" name="listing[country]" class="form-control" required>
+        <div class="invalid-tooltip">
+            Country name should be valid!
+           </div>
+           <div class="valid-tooltip">
+           Country Looks good!
+          </div>
+    </div>  
+    </div>
+</div>
+
+    <div class="mb-4 position-relative">
+        <label for="location" class="form-label fs-4 " style="color:#000C66"><b>Location</b></label>
+        <input type="text" placeholder="Kanpur, Uttarpradesh" name="listing[location]" class="form-control" required>
+        <div class="invalid-tooltip">
+            Location should be valid!
+           </div>
+           <div class="valid-tooltip">
+            Location  Looks good!
+          </div>
+    </div>
+
+        <BUTton class="btn btn-outline-dark btn-hover-green fw-bolder fs-4  mt-4 mb-4">ADD</BUTton>
+    </form>
+    </div>
+</div>
+</body>
+    
+

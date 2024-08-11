@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate") %>
+
+<body style="background-color: #9A616D;">
+
+  <div class="container-fluid d-flex min-vh-100 justify-content-center align-items-center mt-5">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-6 d-none d-md-block equal-height">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+          alt="login form" class="img-fluid h-100" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem;">
+      </div>
+      <div class="col-md-6 equal-height">
+        <div class="card h-100" style="border-radius: 1rem !important; background-color: #c5cbe3;">
+          <div class="card-body p-4 p-lg-5">
+
+            <form action="/signup" method="post" class="needs-validation" novalidate>
+              <div class="d-flex align-items-center mb-4" >
+                <img src="images/wanderlust-high-resolution-logo.jpg" alt="Icon Image" class="icon rounded-circle" >
+                <h3 class=" fw-bolder mb-0 mx-3" style="color: #7b00db;">Welcome To Wanderlust</h3>
+              </div>
+
+              <h4 class="fw-bolder text-success mb-4" style="letter-spacing: 1px;">Get Started!</h4>
+
+              <div class="mb-5 position-relative form-outline">
+                <input type="text" name="username" class="form-control form-control-lg bg-opacity-25" required>
+                <label class="form-label fw-bolder" for="username" style="color: #550098;">Username</label>
+                <div class="invalid-tooltip">Please provide a valid Username.</div>
+                <div class="valid-tooltip">Username Looks Good!!</div>
+              </div>
+
+              <div class="mb-5 position-relative form-outline">
+                <input type="email" name="email" class="form-control form-control-lg bg-opacity-25" required>
+                <label class="form-label fw-bolder" for="email" style="color: #550098;">Email address</label>
+                <div class="invalid-tooltip">Please provide a valid email.</div>
+                <div class="valid-tooltip">Email Looks Good!!</div>
+              </div>
+
+              <div class="mb-5 position-relative form-outline">
+                <input type="password" name="password" class="form-control form-control-lg bg-opacity-25" required>
+                <label class="form-label fw-bolder" for="password" style="color: #550098;">Password</label>
+                <div class="invalid-tooltip">Please provide a password.</div>
+                <div class="valid-tooltip">Password looks good!</div>
+              </div>
+
+              <div class="pt-2 mt-4">
+                <button class="btn btn-outline-success btn-hover-green btn-lg btn-block" type="submit">Sign Up</button>
+              </div>
+
+              <!-- <div class="text-center pt-3">
+                <a class="small text-muted" href="#!">Forgot password?</a>
+              </div>
+
+              <p class="text-center my-4" style="color: #393f81;">Don't have an account? <a href="#!" style="color: #393f81;">Register here</a></p> -->
+
+              <div class="text-center mt-3">
+                <a href="#!" class="small fw-bolder mx-2" style="color: #8f00ff !important;">Terms Of Use</a>
+                <a href="#!" class="small fw-bolder mx-2" style="color: #8f00ff !important;">Privacy Policy</a>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-5"></div>
+
+  <style>
+    .equal-height {
+      display: flex;
+      flex-direction: column;
+     
+    }
+    .equal-height .img-fluid {
+      object-fit: cover;
+    }
+  </style>
+  
+</body>

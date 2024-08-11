@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row bg-light bg-opacity">
+        <div class="col-8 ps-5 pt-5 offset-2">
+        <h3 class="pb-4  fw-bolder" style="color:#512D38;">Edit Your Listing</h3>
+        <form action="/listings/<%=listing._id%>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+            
+            <div class="mb-4 position-relative">
+                <label for="title" class="form-label fs-5 "style="color:#b27092" ><b>Title</b></label>
+            <input type="text"value="<%= listing.title %>" name="listing[title]"class="form-control" required >
+            <div class="valid-tooltip">
+                Title Looks good!
+              </div>
+              <div class="invalid-tooltip">
+               Title should be valid!
+               </div>
+        </div >
+
+
+            <div class="mb-4 position-relative">
+                <label for="description" class="form-label fs-5 " style="color:#b27092"><b>Description</b></label>
+           <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea > 
+            <div class="invalid-tooltip">
+                Description should be valid!
+              </div>
+              <div class="valid-tooltip">
+                Decsription Looks good!
+              </div>
+        </div>
+
+  
+        <div class="mb-3 py-2">
+          <h5 style="color:#b27092"><b>Original Image</b></h5>
+          <img src="<%=originalImageUrl%>" height="300px" width="500px">
+          </div>
+          
+
+
+           <div class="mb-4 position-relative">
+            <label for="image" class="form-label fs-5 " style="color:#b27092"><b>Upload New Image</b></label>
+            <input type="file" name="listing[image][url]" class="form-control" >
+            <div class="invalid-tooltip">
+              Please Upload A Image!
+              </div>
+        </div >
+
+
+           <div class="row mb-1 ">
+            <div class="mb-4 col-md-4 position-relative">  
+                <label for="price" class="form-label fs-5 " style="color:#b27092"><b>Price</b></label>
+                   <input value="<%= listing.price %>" name="listing[price]" class="form-control m-0" required>
+                   <div class="invalid-tooltip">
+                  Price should be valid!
+                  </div>
+          <div class="valid-tooltip">
+        Price  Looks good!
+          </div>
+                   </div>
+             
+            <div class="mb-4  position-relative col-md-8">
+                <label for="country" class="form-label fs-5 " style="color:#b27092"><b>Country</b></label>
+            <input type="text"value="<%= listing.country %>"  name="listing[country]" class="form-control m-0" required>
+            <div class="invalid-tooltip">
+            Country name should be valid!
+           </div>
+           <div class="valid-tooltip">
+           Country Looks good!
+          </div>
+            </div >
+            </div>
+
+
+            <div class="mb-4 position-relative">
+                <label for="location" class="form-label fs-5 " style="color:#b27092"><b>Location</b></label>
+            <input type="text" value="<%= listing.location %>" name="listing[location]" class="form-control" required>
+            <div class="invalid-tooltip">
+            Location should be valid!
+           </div>
+           <div class="valid-tooltip">
+            Location  Looks good!
+          </div>
+          </div>
+          
+
+            <BUTton class="btn btn-outline-danger btn-hover-blue fs-4 mt-4 mb-3">EDIT</BUTton>
+        </div>
+    </div>
+        </form>
+
+</body>

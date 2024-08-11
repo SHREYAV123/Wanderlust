@@ -1,0 +1,114 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<script>
+    const coordinates = <%-JSON.stringify(listing.geometry.coordinates)%>;
+    const listing = <%- JSON.stringify(listing) %>;
+    </script>
+
+    
+<body>
+    <div class="row ps-5 bg-light ">
+        
+        <div class="col-8 offset-3 mt-4 mb-3 ">
+            
+            <h3 class="card-title fw-bolder" style="color: #000C66;"><b><%= listing.title %></b></h3>
+        </div>
+        <div class="card col-5 offset-3 pl-0 pr-0">
+            <img src="<%= listing.image.url ? listing.image.url : 'https://media.istockphoto.com/id/119926339/photo/resort-swimming-pool.jpg?s=612x612&w=0&k=20&c=9QtwJC2boq3GFHaeDsKytF4-CavYKQuy1jBD2IRfYKc=' %>" class="card-img round" alt="listing_image" style="height:40vh;">
+            <div class=" card-body">
+                
+                <p class="card-text fs-5" style="color: #7979cf;"><i><b>Owned By: <%= listing.owner.username %></b></i></p>
+                <p class="card-text fs-5" style="color: #0000A3;"><%= listing.description %></p>
+                <p class="card-text fs-5" style="color: #0000FF;">
+                    &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "00.00" %>
+                </p>
+                <p class="card-text fs-5" style="color: #40B0DF;"><%= listing.location %></p>
+                <p class="card-text fs-5" style="color: #40B0DF;"><%= listing.country %></p>
+            </div>
+        </div>
+
+        <% if(curruser && curruser._id.equals(listing.owner._id)){ %> 
+        <div class="d-flex ">
+            
+            <a href="/listings/<%= listing.id %>/edit" class="btn btn-hover-green fs-5 btn-outline-success offset-3 mb-3 mt-3 col-1"><b>EDIT</b></a>
+            <form action="/listings/<%= listing._id %>?_method=DELETE" method="post" >
+                <button class="btn btn-hover-blue btn-outline-primary offset-5 fs-5 mb-3 mt-3"><b>DELETE</b></button>
+            </form>
+    
+    </div>
+    <%}%>
+    
+<div class="col-10 offset-3 mt-1 mb-3  px-3 py-1">
+    <% if(curruser){ %>
+    <div class="bord bg-op opacity-100 ps-4 row d-flex mt-1 mb-3   px-4 py-4 col-6">
+    <h5 class="fs-4 fw-bolder" style="color:#eb0278 ;">Leave A Review</h5>
+<form action="/listings/<%= listing.id %>/reviews"  method="post"   novalidate  class="mt-4 needs-validation">
+   
+   
+    <div> 
+        <label for="rating" class="form-label fs-5 font-weight-bolder "  style="color:#8a7df8";"><b>RATING</b></label>
+
+    <fieldset class="starability-heartbeat card-text">
+        <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+    </div>
+
+
+    <div class="mb-4 position-relative">
+        <label for="comment" class="form-label fs-5 font-weight-bolder" style="color:#8a7df8";	><b>COMMENT </b></label> <br>
+        <textarea name="review[comment]"  cols="10" rows="3"  class="form-control opac fw-bolder  text-primary fs-5 " required></textarea>
+     <div class="valid-tooltip">
+             Comment Looks good!
+           </div>
+     <div class="invalid-tooltip">
+       Comment should be valid!
+      </div>
+    </div>
+    
+    <button type="submit" class=" btn btn-hover-red fs-5 btn-outline-danger mb-3 mt-4"><b>SUBMIT</b></button>
+</form>
+
+</div>
+<%} %>
+
+
+
+<% if(listing.reviews.length > 0){ %>
+<div class="row px-0 mt-4 ">
+    <h4 class="mb-3 mt-3 fw-bolder" style="color:#382e6d;"><i>ALL REVIEWS</i></h4>
+<% for (let i = 0; i < listing.reviews.length; i++) { %>
+
+        <div class="card text-bg-success mb-3 mx-3 mb-4" style="max-width: 18rem;">
+            <div class="card-header text-dark"><b><i>@<%= listing.reviews[i].author.username %></i></b></div>
+            <div class="card-body">
+              <p class="starability-result card-text" data-rating="<%=listing.reviews[i].rating %>"></p>
+                <p class="card-text"><B> <%= listing.reviews[i].comment %> </b></p>
+            </div>
+            <form action="/listings/<%= listing.id %>/reviews/<%= listing.reviews[i]._id %>?_method=DELETE" method="post">
+                <button class="btn btn-outline-info btn-sm mb-3 mx-3" ><b>DELETE</b></button>
+                
+            </form>
+        </div>
+       
+        <% } %>
+ 
+</div>
+   <% } %>
+</div>
+<div class="col-8 offset-3 mb-4 ">
+    <h3 style="color:#4b3d8f"><b>Where You'll Be</b></h3>
+    <div id="map"></div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,52 @@
+
+<nav class="mb-0 bg-pri  sticky-top  border-bottom navbar navbar-expand-md h2">
+    <div class=" container-fluid py-2 ">
+      <a class="navbar-brand d-flex align-items-center fw-bolder" href="/listings" ><span class="material-symbols-outlined bg-pri rounded-circle ab" style="font-size:3rem ;">
+        explore
+        </span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" >
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link  fw-lighter fs-3" href="/listings">Explore</a>
+         
+        </div>
+      
+
+      <div class="search ms-auto navbar-nav">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 fw-bolder fs-5 rounded-5" type="search" placeholder="Search Destinations" aria-label="Search">
+          <button class="btn btn-outline-d btn-hover-dark fw-bolder fs-5 d-inline-flex align-items-center" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search me-2" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442-9.345a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/>
+            </svg>
+            Search
+          </button>
+        </form>
+      </div>
+      
+
+
+
+
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link fw-lighter fs-3" href="/listings/new">Wandelust your villa</a>
+          <%  if(!curruser){ %>
+           <a class="nav-link fw-bold fs-3 "  href="/signup">Sign up</a>
+           <a class="nav-link  fw-bold fs-3" href="/login">Login</a>
+           <% } else { %>
+           <a class="nav-link fw-bold fs-3" href="/logout">Logout</a>
+           <% } %>
+
+ 
+         </div>
+       
+      
+        
+      </div>
+    </div>
+  </nav>
+  
+
+
+  

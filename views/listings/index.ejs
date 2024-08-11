@@ -1,0 +1,151 @@
+<% layout("/layouts/boilerplate") %>
+
+    <!-- <h3  >ALL Listings</h3> -->
+    <!-- <form action="/listings/new" method="get"> -->
+        <!-- <button>Create New Listing</button>
+    </form> -->
+
+
+
+
+    <body>
+  
+
+<div id="filters" class="ps-5 pt-3 bg-light navbar navbar-expand-md">
+<div class="filter">
+ <div > <i class="bi bi-fire text-danger" style="font-size: 2rem;"></i></div>
+ <p style="color: 570530;" class="fw-lighter"> Trending</p>
+</div>
+<div class="filter ">
+  <div >
+    <a href="https://icons8.com/icon/JTTDKaRcrhSN/bedroom">
+      <img src="https://img.icons8.com/?size=50&id=JTTDKaRcrhSN&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+    <p style="color: 570530;" class="fw-lighter">Rooms</p>
+</div>
+
+
+<div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/60641/building">
+      <img src="https://img.icons8.com/?size=50&id=60641&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Iconic Cities</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/12288/landscape">
+      <img src="https://img.icons8.com/?size=50&id=12288&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Mountains</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/wWz701bRjUix/castle">
+      <img src="https://img.icons8.com/?size=50&id=wWz701bRjUix&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Castles</p>
+ </div>
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/cliXK3GCh7oD/pool">
+      <img src="https://img.icons8.com/?size=50&id=cliXK3GCh7oD&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Amazing Pools</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/t86FRPMFcwKF/camping">
+      <img src="https://img.icons8.com/?size=50&id=t86FRPMFcwKF&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Camping</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/dLGzbASHg7iM/grass">
+      <img src="https://img.icons8.com/?size=50&id=dLGzbASHg7iM&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Farms</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/wgC4n5niQXU_/snowflake">
+      <img src="https://img.icons8.com/?size=50&id=wgC4n5niQXU_&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Arctic</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/q4LG8Gx5O2p3/island-on-water">
+      <img src="https://img.icons8.com/?size=50&id=q4LG8Gx5O2p3&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Island</p>
+ </div>
+
+
+ <div class="filter">
+  <div >
+    <a href="https://icons8.com/icon/aia8Diisz8lD/dome">
+      <img src="https://img.icons8.com/?size=50&id=aia8Diisz8lD&format=png&color=000000"  alt="bedroom"/>
+    </a></div>
+  <p style="color: 570530;" class="fw-lighter">Domes</p>
+ </div>
+
+ <div class="tax-toggle border border-success border-3 rounded-5 px-md-3 py-md-2">
+  <div class="form-check-reverse form-switch text-success ">
+    <input class="form-check-input " type="checkbox" id="flexSwitchCheckChecked">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Display Total Before Taxes</label>
+  </div>
+  
+ </div>
+
+</div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 px-4 pt-2 ">
+        <%for(listing of allListings) 
+     {%><a href="/listings/<%=listing._id%>" class="text-decoration-none">
+        <div class="col">
+          <div class="card" >
+            <img src="<%=listing.image.url ? listing.image.url : 'https://media.istockphoto.com/id/119926339/photo/resort-swimming-pool.jpg?s=612x612&w=0&k=20&c=9QtwJC2boq3GFHaeDsKytF4-CavYKQuy1jBD2IRfYKc='%>" class=" card-img-top"  alt="listing_image" style="height:20rem !important">
+            <div class="card-img-overlay"></div>
+            <div class="card-body p-0">
+              <h5 class="card-title fw-400 text-center" style="color: #750550;"><b><%=listing.title%></b></h5>
+              <h5 class="card-price text-center" style="color: #980F5A;">&#8377;<%=listing.price ? listing.price.toLocaleString("en-IN") : "00.00"%> / night 
+                <b class="tax-info">
+                  <i>+18%</i>
+                  GST
+                  </b>
+                
+                
+                </h5>
+              
+            </div>
+          </div>
+        </div>
+      </a>
+        <%  }%>
+        </div>
+
+
+
+
+    <ul>
+    <%for(listing of allListings) 
+     {%>
+        <li><a href="/listings/<%=listing._id%>"><%= listing.title %></a></li>
+        <%  }%>
+</ul>
+
+</body>
